@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AR</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="aframe/aframe.min.js"></script>
 <style>
     .arjs-loader {
       height: 100%;
@@ -28,25 +29,17 @@
   </style>
   
   <body style="margin : 0px; overflow: hidden;">
-    <!-- minimal loader shown until image descriptors are loaded -->
-    <div class="arjs-loader">
+
+    <!-- <div class="arjs-loader">
       <div>Loading, please wait...</div>
-    </div>
+    </div> -->
     <a-scene
       vr-mode-ui="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       embedded
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
     >
-      <!-- we use cors proxy to avoid cross-origin problems -->
-  
-      <!--
-        ⚠️⚠️⚠️
-        https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
-        You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
-        ⚠️⚠️⚠️
-      -->
-  
+    
       <a-nft
         type="nft"
         url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
@@ -64,5 +57,9 @@
       </a-nft>
       <a-entity camera></a-entity>
     </a-scene>
+    <a-scene>
+		<a-torus position="-2 1 -5" color="green" radius="1.2"></a-torus>
+		<a-sky color="gray"></a-sky>
+	</a-scene>
   </body>
 </html>
